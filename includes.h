@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   includes.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharboul <sharboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 15:17:53 by sharboul          #+#    #+#             */
-/*   Updated: 2022/01/05 05:23:42 by sharboul         ###   ########.fr       */
+/*   Created: 2022/01/04 09:47:05 by sharboul          #+#    #+#             */
+/*   Updated: 2022/01/08 14:43:22 by sharboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-
-typedef struct pipe {
-	int				ip;
-	int				op;
-}	t_pipe;
-
-/*
- * arr -> arrays of pipe struct
- * size -> number of elements in array
- */
-
-typedef struct pipes {
-	t_pipe	**arr;
-	size_t	size;
-}	t_pipes;
+#ifndef INCLUDES_H
+# define INCLUDES_H
+# include <unistd.h>
+# include <stdio.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <string.h>
+# include <errno.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
 #endif

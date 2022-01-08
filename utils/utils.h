@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharboul <sharboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 15:17:53 by sharboul          #+#    #+#             */
-/*   Updated: 2022/01/05 05:23:42 by sharboul         ###   ########.fr       */
+/*   Created: 2022/01/04 16:15:42 by sharboul          #+#    #+#             */
+/*   Updated: 2022/01/08 14:43:59 by sharboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef UTILS_H
+# define UTILS_H
 
-typedef struct pipe {
-	int				ip;
-	int				op;
-}	t_pipe;
-
-/*
- * arr -> arrays of pipe struct
- * size -> number of elements in array
- */
-
-typedef struct pipes {
-	t_pipe	**arr;
-	size_t	size;
-}	t_pipes;
+int		ft_perror(char *type);
+int		ft_printerr(char *str);
 
 #endif
