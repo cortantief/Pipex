@@ -6,12 +6,11 @@
 /*   By: sharboul <sharboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:25:39 by sharboul          #+#    #+#             */
-/*   Updated: 2022/01/08 14:41:31 by sharboul         ###   ########.fr       */
+/*   Updated: 2022/01/10 15:33:26 by sharboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
-#include "pipex.h"
 #include "utils/utils.h"
 
 static int	execute(char *argv[], size_t argc, size_t len, int fd[2])
