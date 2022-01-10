@@ -6,7 +6,7 @@
 /*   By: sharboul <sharboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:25:39 by sharboul          #+#    #+#             */
-/*   Updated: 2022/01/10 16:10:16 by sharboul         ###   ########.fr       */
+/*   Updated: 2022/01/10 17:27:00 by sharboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ static int	execute(char *argv[], size_t argc, size_t len, int fd[2])
 	}
 	if (fd[0] < 0 || fd[1] < 0)
 		return (1);
-	dup2(fd[0], STDIN_FILENO);
-	dup2(fd[1], STDOUT_FILENO);
+	if (dup2(fd[0], STDIN_FILENO) == -1)
+		return (1);
+	if (dup2(fd[1], STDOUT_FILENO) == -1)
+		return (1);
 	close(fd[0]);
 	return (0);
 }
