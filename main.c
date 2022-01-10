@@ -6,7 +6,7 @@
 /*   By: sharboul <sharboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:25:39 by sharboul          #+#    #+#             */
-/*   Updated: 2022/01/10 15:33:26 by sharboul         ###   ########.fr       */
+/*   Updated: 2022/01/10 16:10:16 by sharboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ static void	pass(int p[2], int fd[2], size_t *len)
 	*len = *len + 1;
 }
 
+static int	setup(int p[2], int fd[2])
+{
+	if (pipe(p) == -1)
+		return (ft_perror("pipe"));
+	fd[1] = p[1];
+	return (fork());
+}
+
 static int	ft_main(char *argv[], char *params[4], char *envs[], size_t argc)
 {
 	size_t	len;
@@ -49,15 +57,14 @@ static int	ft_main(char *argv[], char *params[4], char *envs[], size_t argc)
 	len = 2;
 	while (len < argc - 1)
 	{
-		pid = fork();
-		if (pid == -1 || pipe(p) != 0)
+		pid = setup(p, fd);
+		if (pid == -1)
 			return (1);
-		fd[1] = p[1];
 		if (pid == 0)
 		{
 			params[2] = argv[len];
 			if (execute(argv, argc, len, fd) != 0)
-				exit(1);
+				exit(ft_perror("execute"));
 			if (execve(*params, params, envs) == -1)
 				exit(ft_perror("execve"));
 			exit(0);
